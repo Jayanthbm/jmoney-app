@@ -1,50 +1,104 @@
 // components/MainTabs.js
 
-import Budgets from '../screens/Budgets';
-import CustomAppBar from './CustomAppBar';
-import Goals from '../screens/Goals';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import Overview from '../screens/Overview';
-import React from 'react';
-import Reports from '../screens/Reports';
-import Transactions from '../screens/Transactions';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useTheme } from 'react-native-paper';
+import { Animated, StyleSheet, View } from "react-native";
+import { Icon, useTheme } from "react-native-paper";
+
+import Budgets from "../screens/Budgets";
+import CustomAppBar from "./CustomAppBar";
+import Goals from "../screens/Goals";
+import Overview from "../screens/Overview";
+import React from "react";
+import Reports from "../screens/Reports";
+import Transactions from "../screens/Transactions";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
+
+const tabs = [
+   { name: "Overview", icon: "view-dashboard-outline", activeIcon: "view-dashboard" },
+   { name: "Transactions", icon: "swap-horizontal", activeIcon: "swap-horizontal-bold" },
+   { name: "Budgets", icon: "wallet-outline", activeIcon: "wallet" },
+   { name: "Goals", icon: "target", activeIcon: "target" },
+   { name: "Reports", icon: "chart-line", activeIcon: "chart-line" },
+];
+
 const MainTabs = ({ navigation, onLogout }) => {
    const theme = useTheme();
 
    return (
       <>
          <CustomAppBar navigation={navigation} title="JMoney" onLogout={onLogout} />
+
          <Tab.Navigator
             screenOptions={({ route }) => ({
                headerShown: false,
-               tabBarStyle: { backgroundColor: theme.colors.surface },
-               tabBarActiveTintColor: theme.colors.primary,
-               tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
-               tabBarIcon: ({ color, size }) => {
-                  let iconName;
-                  switch (route.name) {
-                     case "Overview": iconName = "view-dashboard-outline"; break;
-                     case "Transactions": iconName = "swap-horizontal"; break;
-                     case "Budgets": iconName = "wallet-outline"; break;
-                     case "Goals": iconName = "target"; break;
-                     case "Reports": iconName = "chart-line"; break;
-                  }
-                  return <Icon name={iconName} color={color} size={size} />;
+               tabBarShowLabel: true,
+               tabBarStyle: {
+                  backgroundColor: theme.colors.surfaceVariant,
+                  borderTopWidth: 0,
+                  elevation: 8,
+                  height: 80,
                },
+               tabBarLabelStyle: {
+                  fontSize: 12,
+                  fontWeight: "500",
+                  marginTop: 5,
+               },
+               tabBarActiveTintColor: theme.colors.onActiveIndicator,
+               tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
+               tabBarIcon: ({ color, focused }) => {
+                  const tab = tabs.find(t => t.name === route.name);
+                  const iconName = focused ? tab.activeIcon : tab.icon;
+
+                  return (
+                     <View style={styles.iconContainer}>
+                        {focused && (
+                           <Animated.View
+                              style={[
+                                 styles.activePill,
+                                 { backgroundColor: theme.colors.activeIndicator },
+                              ]}
+                           />
+                        )}
+                        <Icon source={iconName} size={26} color={focused ? theme.colors.onActiveIndicator : color} />
+                     </View>
+                  );
+               },
+               tabBarIconStyle: {
+                  marginTop: 5,
+               }
             })}
          >
-            <Tab.Screen name="Overview" component={Overview} />
-            <Tab.Screen name="Transactions" component={Transactions} />
-            <Tab.Screen name="Budgets" component={Budgets} />
-            <Tab.Screen name="Goals" component={Goals} />
-            <Tab.Screen name="Reports" component={Reports} />
+            {tabs.map(tab => (
+               <Tab.Screen key={tab.name} name={tab.name} component={
+                  {
+                     Overview,
+                     Transactions,
+                     Budgets,
+                     Goals,
+                     Reports,
+                  }[tab.name]
+               } />
+            ))}
          </Tab.Navigator>
       </>
    );
 };
+
+const styles = StyleSheet.create({
+   iconContainer: {
+      alignItems: "center",
+      justifyContent: "center",
+      width: 60,
+      height: 40,
+   },
+   activePill: {
+      position: "absolute",
+      width: 56,
+      height: 36,
+      borderRadius: 18,
+      opacity: 1,
+   },
+});
 
 export default MainTabs;
