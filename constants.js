@@ -1,15 +1,16 @@
+// === LIGHT MODE ===
 export const LightColors = {
-   // === Primary system ===
-   primary: "#0B57D0",                // Default button fill
+   // Primary System
+   primary: "#0B57D0",
    onPrimary: "#FFFFFF",
-   primaryContainer: "#D2E3FF",       // Secondary button background
+   primaryContainer: "#D2E3FF",
    onPrimaryContainer: "#001D35",
 
-   // === Accent / Focus ===
-   focus: "#1A73E8",                  // TextInput highlight, cursor, etc.
-   outline: "#C7C7C7",                // TextInput unfocused border
+   // Accent / Focus
+   focus: "#1A73E8",
+   outline: "#C7C7C7",
 
-   // === Secondary & Surface ===
+   // Secondary & Surface
    secondary: "#535F70",
    onSecondary: "#FFFFFF",
    secondaryContainer: "#D7E3F0",
@@ -20,54 +21,62 @@ export const LightColors = {
 
    surface: "#FFFFFF",
    onSurface: "#1B1B1B",
-   surfaceVariant: "#E0E3E8",
-   onSurfaceVariant: "#43474E",
+   surfaceVariant: "#EFF3F8", // bottom bar background
+   onSurfaceVariant: "#444746", // unselected icon/text
 
-   // === Error ===
+   // Navigation Active (pill)
+   activeIndicator: "#C3E7FF",    // pill bubble
+   onActiveIndicator: "#004A77",  // icon/text in pill
+
+   // Error
    error: "#B3261E",
    onError: "#FFFFFF",
    errorContainer: "#F9DEDC",
    onErrorContainer: "#410E0B",
 
-   // === Misc ===
+   // Misc
    shadow: "#000000",
    inverseSurface: "#313033",
    inverseOnSurface: "#F4EFF4",
 };
 
-
+// === DARK MODE ===
 export const DarkColors = {
-   // === Primary system ===
-   primary: "#A8C7FA",                // Button background (matches Google Tasks)
+   // Primary System
+   primary: "#A8C7FA",
    onPrimary: "#00325A",
-   primaryContainer: "#1E3A5F",       // Elevated / secondary button
+   primaryContainer: "#1E3A5F",
    onPrimaryContainer: "#D2E3FF",
 
-   // === Accent / Focus ===
-   focus: "#8AB4F8",                  // TextInput focus, cursor, etc.
-   outline: "#5F6368",                // Unfocused outline
+   // Accent / Focus
+   focus: "#8AB4F8",
+   outline: "#5F6368",
 
-   // === Secondary & Surface ===
+   // Background & Surface
+   background: "#121212",
+   onBackground: "#E3E3E3",
+   surface: "#121212",
+   onSurface: "#E3E3E3",
+   surfaceVariant: "#1E1E1E",
+   onSurfaceVariant: "#C3C7CE",
+
+   // Navigation Active (pill)
+   activeIndicator: "#004A77",     // pill bubble
+   onActiveIndicator: "#C3E7FF",   // icon/text in pill
+
+   // Secondary
    secondary: "#BBC7DB",
-   onSecondary: "#243140",
+   onSecondary: "#1B1F23",
    secondaryContainer: "#3B4858",
-   onSecondaryContainer: "#D7E3F0",
+   onSecondaryContainer: "#E8EAED",
 
-   background: "#121212",             // App background
-   onBackground: "#E3E3E3",           // Main text
-
-   surface: "#121212",                // Same as background
-   onSurface: "#E3E3E3",              // Text on surface
-   surfaceVariant: "#1E1E1E",         // Cards, containers
-   onSurfaceVariant: "#C3C7CE",       // Subtle text/icons
-
-   // === Error ===
+   // Error
    error: "#F28B82",
    onError: "#601410",
    errorContainer: "#8C1D18",
    onErrorContainer: "#F9DEDC",
 
-   // === Misc ===
+   // Misc
    outlineVariant: "#8C9199",
    shadow: "#000000",
    inverseSurface: "#E3E3E3",
