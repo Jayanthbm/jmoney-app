@@ -38,6 +38,8 @@ export const LightColors = {
    shadow: "#000000",
    inverseSurface: "#313033",
    inverseOnSurface: "#F4EFF4",
+   income: '#43a047',
+   expense: '#e53935'
 };
 
 // === DARK MODE ===
@@ -81,4 +83,6 @@ export const DarkColors = {
    shadow: "#000000",
    inverseSurface: "#E3E3E3",
    inverseOnSurface: "#121212",
+   income: '#66bb6a',
+   expense: '#ef5350'
 };
