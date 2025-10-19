@@ -1,14 +1,13 @@
 // screens/Transactions.js
 
-import { Text, View } from 'react-native';
-
+import CustomAppBar from '../components/CustomAppBar';
 import React from 'react';
 
 const Transactions = () => {
    return (
-      <View>
-         <Text>Transactions</Text>
-      </View>
+      <>
+         <CustomAppBar title="Transactions" />
+      </>
    );
 };
 

@@ -1,14 +1,13 @@
 // screens/Goals.js
 
-import { Text, View } from 'react-native';
-
+import CustomAppBar from '../components/CustomAppBar';
 import React from 'react';
 
 const Goals = () => {
    return (
-      <View>
-         <Text>Goals</Text>
-      </View>
+      <>
+         <CustomAppBar title="Goals" />
+      </>
    );
 };
 

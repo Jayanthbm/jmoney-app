@@ -4,11 +4,6 @@ import * as React from "react";
 
 import { DarkColors, LightColors } from "./constants";
 import {
-  DarkTheme as NavDarkTheme,
-  DefaultTheme as NavLightTheme,
-  NavigationContainer,
-} from "@react-navigation/native";
-import {
   MD3DarkTheme as PaperDarkTheme,
   MD3LightTheme as PaperLightTheme,
   Provider as PaperProvider,
@@ -17,7 +12,9 @@ import {
 import { Appearance } from "react-native";
 import Login from "./screens/Login";
 import MainTabs from "./components/MainTabs";
-import Settings from "./screens/Settings";
+import {
+  NavigationContainer,
+} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { supabase } from "./supabaseClient";
 
@@ -54,10 +51,6 @@ export default function App() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setIsLoggedIn(false);
-  };
 
   if (loading) return null;
 
@@ -79,9 +72,8 @@ export default function App() {
           ) : (
             <>
               <Stack.Screen name="MainTabs">
-                {(props) => <MainTabs {...props} onLogout={handleLogout} />}
-              </Stack.Screen>
-              <Stack.Screen name="Settings" component={Settings} />
+                  {(props) => <MainTabs {...props} />}
+                </Stack.Screen>
             </>
           )}
         </Stack.Navigator>

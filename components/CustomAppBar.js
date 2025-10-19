@@ -1,38 +1,34 @@
 // components/CustomAppBar.js
 
 import { Appbar, useTheme } from "react-native-paper";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
 import React from "react";
 
-const CustomAppBar = ({ navigation, onLogout }) => {
+const CustomAppBar = ({ title }) => {
    const theme = useTheme();
 
    return (
       <Appbar.Header
-         style={[styles.header, { backgroundColor: "transparent", elevation: 0 }]}
+         mode="center-aligned"
+         style={[
+            styles.header,
+            { backgroundColor: "transparent", elevation: 0 },
+         ]}
       >
          {/* Logo on the left */}
          <Image
             source={require("../assets/logo.png")}
             style={styles.logo}
-            resizeMode="cover"
+            resizeMode="contain"
          />
-
-         {/* Spacer to push icons to the right */}
-         <View style={{ flex: 1 }} />
-
-         {/* Action icons on the right */}
-         <Appbar.Action
-            icon="cog-outline"
-            color={theme.colors.onBackground}
-            onPress={() => navigation.navigate("Settings")}
-         />
-         <Appbar.Action
-            icon="logout"
-            color={theme.colors.onBackground}
-            onPress={onLogout}
-         />
+         {/* Optional title */}
+         {title && (
+            <Appbar.Content
+               title={title}
+               titleStyle={{ color: theme.colors.onBackground, fontWeight: "bold" }}
+            />
+         )}
       </Appbar.Header>
    );
 };

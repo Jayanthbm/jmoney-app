@@ -1,14 +1,13 @@
 // screens/Reports.js
 
-import { Text, View } from 'react-native';
-
+import CustomAppBar from '../components/CustomAppBar';
 import React from 'react';
 
 const Reports = () => {
    return (
-      <View>
-         <Text>Reports</Text>
-      </View>
+      <>
+         <CustomAppBar title="Reports" />
+      </>
    );
 };
 

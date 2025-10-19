@@ -1,14 +1,13 @@
 // screens/Overview.js
 
-import { Text, View } from 'react-native';
-
+import CustomAppBar from '../components/CustomAppBar';
 import React from 'react';
 
 const Overview = () => {
    return (
-      <View>
-         <Text>Overview</Text>
-      </View>
+      <>
+         <CustomAppBar title="Overview" />
+      </>
    );
 };
 

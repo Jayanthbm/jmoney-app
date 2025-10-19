@@ -1,14 +1,13 @@
 // screens/Settings.js
 
-import { Text, View } from 'react-native';
-
+import CustomAppBar from '../components/CustomAppBar';
 import React from 'react';
 
 const Settings = () => {
    return (
-      <View>
-         <Text>Settings</Text>
-      </View>
+      <>
+         <CustomAppBar title="Settings" />
+      </>
    );
 };
 

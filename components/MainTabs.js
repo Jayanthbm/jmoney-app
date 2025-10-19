@@ -4,11 +4,11 @@ import { Animated, StyleSheet, View } from "react-native";
 import { Icon, useTheme } from "react-native-paper";
 
 import Budgets from "../screens/Budgets";
-import CustomAppBar from "./CustomAppBar";
 import Goals from "../screens/Goals";
 import Overview from "../screens/Overview";
 import React from "react";
 import Reports from "../screens/Reports";
+import Settings from "../screens/Settings";
 import Transactions from "../screens/Transactions";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -20,15 +20,14 @@ const tabs = [
    { name: "Budgets", icon: "wallet-outline", activeIcon: "wallet" },
    { name: "Goals", icon: "target", activeIcon: "target" },
    { name: "Reports", icon: "chart-line", activeIcon: "chart-line" },
+   { name: "Settings", icon: "cog-outline", activeIcon: "cog" },
 ];
 
-const MainTabs = ({ navigation, onLogout }) => {
+const MainTabs = () => {
    const theme = useTheme();
 
    return (
       <>
-         <CustomAppBar navigation={navigation} title="JMoney" onLogout={onLogout} />
-
          <Tab.Navigator
             screenOptions={({ route }) => ({
                headerShown: false,
@@ -77,6 +76,7 @@ const MainTabs = ({ navigation, onLogout }) => {
                      Budgets,
                      Goals,
                      Reports,
+                     Settings,
                   }[tab.name]
                } />
             ))}
