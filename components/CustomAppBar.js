@@ -22,11 +22,15 @@ const CustomAppBar = ({ title }) => {
             style={styles.logo}
             resizeMode="contain"
          />
-         {/* Optional title */}
+
+         {/* Title */}
          {title && (
             <Appbar.Content
                title={title}
-               titleStyle={{ color: theme.colors.onBackground, fontWeight: "bold" }}
+               titleStyle={[
+                  styles.title,
+                  { color: theme.colors.onBackground },
+               ]}
             />
          )}
       </Appbar.Header>
@@ -37,11 +41,16 @@ const styles = StyleSheet.create({
    header: {
       shadowOpacity: 0,
       elevation: 0,
-      paddingHorizontal: 8,
+      paddingHorizontal: 12,
+      height: 56, // Material 3 standard
    },
    logo: {
       width: 36,
       height: 36,
+   },
+   title: {
+      fontWeight: "bold",
+      marginLeft: 8, // optional spacing from logo
    },
 });
 
