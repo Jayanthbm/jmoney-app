@@ -14,6 +14,7 @@ const NetWorthCard = ({ amount, loading }) => {
             color: theme.colors.income,
             fontSize: 30,
             marginTop: 5,
+            fontWeight: '700'
          }}>
             ₹{amount.toLocaleString("en-IN")}
          </Text>

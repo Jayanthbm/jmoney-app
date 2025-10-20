@@ -33,14 +33,14 @@ const TopCategoriesCard = React.memo(({ loading, data }) => {
                      <Text
                         variant="titleMedium"
                         style={[
-                           styles.categoryName,
+                           styles.headlineMedium,
                            { color: theme.colors.onSurface },
                         ]}
                      >
                         {item.name}
                      </Text>
                      <Text
-                        variant="bodySmall"
+                        variant="bodyMedium"
                         style={{ color: theme.colors.onSurfaceVariant }}
                      >
                         ₹{item.amount.toLocaleString("en-IN")} • {item.percent}%
@@ -55,8 +55,8 @@ const TopCategoriesCard = React.memo(({ loading, data }) => {
 
 const styles = StyleSheet.create({
    container: {
-      marginTop: 8,
-      gap: 14,
+      marginTop: 6,
+      gap: 6
    },
    row: {
       flexDirection: "row",
