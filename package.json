@@ -15,7 +15,7 @@
     "@react-navigation/native-stack": "^7.3.28",
     "@supabase/supabase-js": "^2.75.1",
     "dayjs": "^1.11.18",
-    "expo": "~54.0.13",
+    "expo": "~56.0.12",
     "expo-sqlite": "~16.0.8",
     "expo-status-bar": "~3.0.8",
     "react": "19.1.0",
